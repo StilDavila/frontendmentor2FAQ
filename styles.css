@@ -78,6 +78,10 @@ body{
   height: 7px;
 }
 
+.form-question__answer{
+  transition: 3s;
+}
+
 
 
 
