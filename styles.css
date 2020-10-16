@@ -23,9 +23,10 @@ body{
   height: 100%;
   font-family: 'Kumbh Sans';
   color: var(--dark-grayish-blue);
-  background: linear-gradient(var(--soft-violet), var(--soft-blue)) no-repeat; 
-  /* background: var(--soft-violet, var(--soft-blue)));  */
-
+  background: linear-gradient(var(--soft-violet), var(--soft-blue));
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  /* border: 5px solid black;s */
 }
 
 .container{
@@ -38,17 +39,22 @@ body{
 }
 
 .girl{
-  position: absolute;
-  top: -9em;
+  height: 180px;
+  /* border: 1px solid black; */
+  background: url('images/illustration-woman-online-mobile.svg') no-repeat;
+  transform: translateY(-11em);
 }
 
 .shadow{
-  position: absolute;
-  top: -1em;
+  height: 110px;
+  /* border: 1px solid red; */
+  background: url('images/bg-pattern-mobile.svg') no-repeat center;
+  transform: translate(.8em,-17em);
+
 }
 
 .content{
-  margin-top: 4em;
+  margin-top: -16em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -56,6 +62,7 @@ body{
 
 .content h1{
   font-size: 3em;
+  margin-left: .5em;
   color: var(--very-dark-grayish-blue);
 }
 
@@ -78,17 +85,54 @@ body{
   height: 7px;
 }
 
-.form-question__answer{
-  transition: 3s;
+
+.form-question__answer {
+  animation: slideDown 1s;
+}
+.form-question__answer p {
+  margin: 0;
+  padding: 1rem;
+  animation: fadeIn 1.5s;
+}
+
+@keyframes slideDown {
+  from {
+    height: 0;
+  }
+  to {
+    height: 45.8px;
+  }
+}
+
+@keyframes slideUp{
+  from{
+    height: 45.8px;
+  }
+  to{
+    height: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+   }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 1;
+   }
+  to {
+    opacity: 0;
+  }
 }
 
 
-
-
-
-
-
-
+/* Commons */
 .active{
   color: var(--very-dark-grayish-blue);
   font-weight: 700;
@@ -107,3 +151,67 @@ body{
   display: none;
 }
 
+@media screen and (min-width: 900px){
+  body{
+    position: sticky;
+    z-index: 1000;
+
+  }
+
+  .container{
+    margin-left: auto;
+    margin-right: auto;
+    width: 970px;
+    display: flex;
+    overflow: hidden;
+    /* grid-template-columns: repeat(2,1fr); */
+  }
+
+  .images{
+    height: 500px;
+    width: 50%;
+    position: relative;
+    /* background: url('images/bg-pattern-desktop.svg'), url('images/illustration-box-desktop.svg') no-repeat left center, url('images/illustration-woman-online-desktop.svg') right */
+  }
+  
+  .girl{
+    height: 100%;
+    width: 110%;
+    position: relative;
+    background: url('images/illustration-woman-online-desktop.svg') no-repeat center;
+    transform: translate(-10em, -1.5em);
+    z-index: 100;
+  }
+
+  .shadow{
+    height: 800px;
+    width: 100%;
+    background: url('images/bg-pattern-desktop.svg') no-repeat right bottom;
+    object-fit: cover;
+    transform: translate(-90px,-670px);
+    top: 40px;
+  }
+
+  .box{
+    width: 100px;
+    height: 120px;
+    /* border: 1px solid red; */
+    position: absolute;
+    z-index: 1000;
+    background: url('images/illustration-box-desktop.svg') no-repeat center top;
+    transform: translate(-70px,190px);
+  }
+
+  .content{
+    margin: 0 ;
+    display: flex;
+    justify-content: left;
+    font-size: 1.3em; 
+    width: 40%;
+  }
+
+  .content h1{
+    width: 100%;
+  }
+
+}

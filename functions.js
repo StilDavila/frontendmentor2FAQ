@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function cargarListeners(){
   const $divQuestions = document.getElementsByClassName('form-question__question');
-  const $arrow = document.getElementById('arrow');
+  const $arrow = document.getElementsByTagName('arrow');
   [...$divQuestions].forEach(divQuestion => {
     divQuestion.childNodes[1].addEventListener('click', function(){
       divQuestion.classList.toggle('active');
@@ -39,10 +39,14 @@ function cargarListeners(){
       divQuestion.childNodes[3].style.transform = "rotate(180deg)";
 
       if(divQuestion.classList.contains('active')){
-        divQuestion.childNodes[3].style.transform = "rotate(180deg)";      
+        divQuestion.childNodes[3].style.transform = "rotate(180deg)";
+              
       }else{
         divQuestion.childNodes[3].style.transform = "rotate(-360deg)";
       }
     });
+
   });
+
+
 }
